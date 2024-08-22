@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snyllo Estética</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #9C27B0, #FF4081);
+        }
+
+        .container {
+            display: flex;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            max-width: 1200px;
+            width: 90%;
+            margin: 50px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-side {
+            flex: 1;
+            background-image: url('your-image.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .image-side:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-over-image {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+        }
+
+        .text-over-image h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .form-side {
+            flex: 1;
+            padding: 40px;
+            background: linear-gradient(135deg, #9C27B0, #FF4081);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-side h2 {
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .form-side input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+
+        .button-container {
+            background-color: #FF5722;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .section-container {
+            text-align: center;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .content-box h3 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        .content-box p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        .icon-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .icon-box {
+            flex: 1;
+            max-width: 200px;
+            margin: 0 10px;
+        }
+
+        .icon-box img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .icon-box h4 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .icon-box p {
+            font-size: 0.9em;
+        }
+
+        .button {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-size: 1em;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: white;
+            color: #9C27B0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image-side">
+            <img src="35.png" alt="Laser Treatment">
+            <div class="text-over-image">
+                <h3>Forever Ready</h3>
+                <p>With Zero Prep</p>
+            </div>
+        </div>
+        <div class="form-side">
+            <h2>Smooth your skin at home with Laser hair reductions.</h2>
+            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Mobile Number">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Location">
+            <div class="checkbox-container">
+                <input type="checkbox" id="agree">
+                <label for="agree">By submitting this form, you agree to be contacted via email, WhatsApp, or call</label>
+            </div>
+            <a href="#" class="button-container">Try at ₹699/-</a>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h1 class="section-title">Breakup–forever with painful SHAVING & WAXING!</h1>
+        <div class="content-box">
+            <h3>let's get to know more about Snyllo LHR.</h3>
+            <a href="#" class="button">Know more</a>
+        </div>
+        
+        <div class="icon-row">
+            <div class="icon-box">
+                <img src="icon1.png" alt="Convenient">
+                <h4>SO CONVENIENT!</h4>
+                <p>Book a service at the comfort of your home. Our experts will do the rest.</p>
+            </div>
+            <div class="icon-box">
+                <img src="icon2.png" alt="Hair Reduction">
+                <h4>99% HAIR REDUCTION</h4>
+                <p>Waxing, threading, plucking (ouch!) allow for in-growths. With LHR no hair root.</p>
+            </div>
+            <div class="icon-box">
+                <img src="icon3.png" alt="Painless">
+                <h4>PAINLESS & BURN FREE</h4>
+                <p>Our Quadruple Wavelength Laser is icy. Unlike other lasers, ours doesn’t heat up the skin.</p>
+            </div>
+            <div class="icon-box">
+                <img src="icon4.png" alt="Safety & Hygiene">
+                <h4>SAFETY & HYGIENE</h4>
+                <p>Our laser tech is skin-safe, with therapists doing temp checks and sterilizing kits for each use.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

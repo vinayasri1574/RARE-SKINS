@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Before and After Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-section {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .text-section h2 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .text-section hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        .highlight-text {
+            color: #d9534f;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .image-section {
+            flex: 1;
+            position: relative;
+            max-width: 400px;
+            margin-left: 40px;
+        }
+
+        .before-after-slider {
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .before-after-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .before-after-slider .after-image {
+            clip-path: inset(50% 0 0 0);
+            z-index: 2;
+        }
+
+        .before-after-slider .slider {
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            transform: translateX(-50%);
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .before-after-slider .slider:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            border: 2px solid #000;
+            transform: translate(-50%, -50%);
+        }
+
+        .label-before, .label-after {
+            position: absolute;
+            font-weight: bold;
+            color: #d9534f;
+            font-size: 1.2em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .label-before {
+            top: -30px;
+        }
+
+        .label-after {
+            bottom: -30px;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 2em;
+        }
+
+        .whatsapp-icon:hover {
+            background-color: #20c653;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h2>SEE WHAT THE RESULT<br>WILL BE THERE IN 12 MONTHS</h2>
+            <hr>
+            <p class="highlight-text">In addition, the effect lasts up to 15-20 years</p>
+            <hr>
+            <p>The procedure does not cause pain even on the most sensitive areas of the skin.</p>
+            <p>In 120 months you save up to ₹ 3,00,000/- with a subscription and multiple visits.</p>
+        </div>
+        <div class="image-section">
+            <div class="before-after-slider" id="slider">
+                <img src="before.png" alt="Before Image" class="before-image">
+                <img src="after.png" alt="After Image" class="after-image">
+                <div class="slider" id="sliderHandle"></div>
+            </div>
+            <div class="label-before">BEFORE</div>
+            <div class="label-after">AFTER</div>
+        </div>
+        <a href="#" class="whatsapp-icon">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const sliderHandle = document.getElementById('sliderHandle');
+        const afterImage = document.querySelector('.after-image');
+
+        sliderHandle.onmousedown = function (e) {
+            document.onmousemove = function (e) {
+                let sliderRect = slider.getBoundingClientRect();
+                let y = e.clientY - sliderRect.top;
+                if (y < 0) y = 0;
+                if (y > sliderRect.height) y = sliderRect.height;
+                sliderHandle.style.bottom = (sliderRect.height - y) + 'px';
+                afterImage.style.clipPath = `inset(${sliderRect.height - y}px 0 0 0)`;
+            };
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+    </script>
+</body>
+</html>

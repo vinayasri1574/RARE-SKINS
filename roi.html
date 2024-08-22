@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .inputs-section, .results-section {
+            width: 48%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .slider-container label {
+            font-weight: bold;
+        }
+
+        .slider-container input[type="range"] {
+            width: 100%;
+        }
+
+        .slider-container span {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .slider-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result-box {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .result-box p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .result-box h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inputs-section">
+            <h1>ROI Calculator</h1>
+            <form id="roi-form">
+                <div class="slider-container">
+                    <label for="costEquipment">Cost of Equipment (INR): <span id="costEquipmentValue">100000</span></label>
+                    <input type="range" id="costEquipment" min="100000" max="9900000" step="10000" value="100000" oninput="updateValue('costEquipment')">
+                    <input type="number" id="costEquipmentInput" value="100000" oninput="syncSlider('costEquipment')">
+                </div>
+
+                <div class="slider-container">
+                    <label for="monthlyLease">Monthly Lease Amount (INR): <span id="monthlyLeaseValue">10000</span></label>
+                    <input type="range" id="monthlyLease" min="10000" max="500000" step="5000" value="10000" oninput="updateValue('monthlyLease')">
+                    <input type="number" id="monthlyLeaseInput" value="10000" oninput="syncSlider('monthlyLease')">
+                </div>
+
+                <div class="slider-container">
+                    <label for="treatmentsPerDay">Number of Treatments per Day: <span id="treatmentsPerDayValue">1</span></label>
+                    <input type="range" id="treatmentsPerDay" min="1" max="100" step="1" value="1" oninput="updateValue('treatmentsPerDay')">
+                    <input type="number" id="treatmentsPerDayInput" value="1" oninput="syncSlider('treatmentsPerDay')">
+                </div>
+
+                <div class="slider-container">
+                    <label for="treatmentCost">Treatment Cost (INR): <span id="treatmentCostValue">1000</span></label>
+                    <input type="range" id="treatmentCost" min="1000" max="500000" step="1000" value="1000" oninput="updateValue('treatmentCost')">
+                    <input type="number" id="treatmentCostInput" value="1000" oninput="syncSlider('treatmentCost')">
+                </div>
+
+                <button type="button" onclick="calculateROI()">Calculate ROI</button>
+            </form>
+        </div>
+
+        <div class="results-section">
+            <div class="result-box">
+                <h2>Annual Profit</h2>
+                <p id="profit">0 INR</p>
+            </div>
+            <div class="result-box">
+                <h2>ROI</h2>
+                <p id="roiPercent">0%</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateValue(id) {
+            const slider = document.getElementById(id);
+            const valueSpan = document.getElementById(id + 'Value');
+            const numberInput = document.getElementById(id + 'Input');
+            valueSpan.textContent = slider.value;
+            numberInput.value = slider.value;
+        }
+
+        function syncSlider(id) {
+            const numberInput = document.getElementById(id + 'Input');
+            const slider = document.getElementById(id);
+            slider.value = numberInput.value;
+            updateValue(id);
+        }
+
+        function calculateROI() {
+            // Get input values
+            const costEquipment = parseFloat(document.getElementById('costEquipment').value);
+            const monthlyLease = parseFloat(document.getElementById('monthlyLease').value);
+            const treatmentsPerDay = parseFloat(document.getElementById('treatmentsPerDay').value);
+            const treatmentCost = parseFloat(document.getElementById('treatmentCost').value);
+
+            // Constants
+            const workingDays = 30;
+
+            // Calculate Total Monthly Revenue
+            const totalMonthlyRevenue = treatmentsPerDay * treatmentCost * workingDays;
+
+            // Calculate Net Monthly Profit
+            const netMonthlyProfit = totalMonthlyRevenue - monthlyLease;
+
+            // Calculate Annual Profit
+            const annualProfit = netMonthlyProfit * 12;
+
+            // Calculate ROI
+            const roiPercent = (annualProfit / costEquipment) * 100;
+
+            // Display results
+            document.getElementById('profit').innerText = annualProfit.toFixed(2) + ' INR';
+            document.getElementById('roiPercent').innerText = roiPercent.toFixed(2) + '%';
+        }
+    </script>
+</body>
+</html>

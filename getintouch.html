@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get In Touch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #DFB6B3;
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+
+        .form-container .form-left {
+            width: 60%;
+            text-align: left;
+        }
+
+        .form-container .form-left form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-container .form-left input,
+        .form-container .form-left select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-container .form-left input[type="submit"] {
+            background-color: #DFB6B3;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            grid-column: span 2;
+        }
+
+        .form-container .form-right {
+            width: 35%;
+            background-color: #9E6496;
+            padding: 30px;
+            border-radius: 15px;
+            color: #fff;
+            text-align: left;
+        }
+
+        .form-container .form-right h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .form-container .form-right p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .form-container .form-right button {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25D366;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .whatsapp-icon img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GET IN TOUCH</h1>
+        <h2>CONTACT US</h2>
+        <p>Our Experts Have All Answers For You</p>
+
+        <div class="form-container">
+            <div class="form-left">
+                <form action="#">
+                    <input type="text" placeholder="Full Name *" required>
+                    <input type="email" placeholder="Email *" required>
+                    <input type="tel" placeholder="Phone/Mobile *" required>
+                    <select required>
+                        <option value="">Select Body Zone *</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                    </select>
+                    <select required>
+                        <option value="">Gender *</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <select required>
+                        <option value="">Location *</option>
+                        <option value="location1">Location 1</option>
+                        <option value="location2">Location 2</option>
+                    </select>
+                    <input type="submit" value="Get Set Glow">
+                </form>
+            </div>
+
+            <div class="form-right">
+                <h3>Ready to Glow?</h3>
+                <p>Looking for the immediate appointments and best deals on our packages? Contact our customer care for prompt assistance.</p>
+                <button>Talk To Us</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="whatsapp-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
+    </a>
+</body>
+</html>

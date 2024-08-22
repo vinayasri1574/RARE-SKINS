@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser vs Waxing Comparison</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffebeb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .laser {
+            background-color: #e6ffea;
+        }
+
+        .waxing {
+            background-color: #ffebeb;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        ul li {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .laser ul li {
+            color: #6d4c41;
+        }
+
+        .waxing ul li {
+            color: #ff7043;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="image">
+                <img src="images/Lhr2.jpg" alt="Laser Hair Reduction">
+            </div>
+            <div class="content laser">
+                <h2>Laser Hair Reduction</h2>
+                <ul>
+                    <li>Pretty painless</li>
+                    <li>Permanent results</li>
+                    <li>Sessions are 4 to 12 weeks apart. Your skin is well rested.</li>
+                    <li>No in-growths at all</li>
+                    <li>Cost-effective. You spend about Rs. 60,000 for a permanent solution.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image">
+                <img src="images/twax.jpg" alt="Traditional Waxing">
+            </div>
+            <div class="content waxing">
+                <h2>Traditional Waxing</h2>
+                <ul>
+                    <li>It hurts so much!</li>
+                    <li>Temporary results</li>
+                    <li>Sessions are 3 to 4 weeks apart. Your skin gets no rest.</li>
+                    <li>Lots of in-growths</li>
+                    <li>Expensive! You spend about Rs. 3.6 lakhs in the long run.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

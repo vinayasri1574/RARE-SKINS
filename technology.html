@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Technology</title>
+<style>
+    body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.technology-section {
+    /* background-image: url('images/7.jpg');  */
+    background-size: cover; /* Ensures the background image covers the entire section */
+    background-position: center; /* Centers the image in the section */
+    padding: 50px;
+    text-align: center;
+    color: rgb(10, 9, 9);
+}
+
+
+.technology-section h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.left-content, .right-content {
+    flex: 1;
+    max-width: 400px;
+}
+
+.center-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.left-content ul, .right-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-content ul li, .right-content ul li {
+    font-size: 18px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.left-content ul li img, .right-content ul li img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.center-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .left-content, .right-content, .center-image {
+        max-width: 100%;
+    }
+}
+
+</style>  
+</head>
+<body>
+    <section class="technology-section">
+        <h1>our technology</h1>
+        <div class="content-wrapper">
+            <div class="left-content">
+                <ul>
+                    <li><img src="path/to/icon1.svg" alt="Icon 1"> High Pulse Energy with Quadruple Wavelength</li>
+                    <li><img src="path/to/icon2.svg" alt="Icon 2"> Intuitive, User Friendly 12.1 With Snyllo Touchscreen</li>
+                    <li><img src="path/to/icon3.svg" alt="Icon 3"> Clinically Proven 3D Technology</li>
+                    <li><img src="path/to/icon4.svg" alt="Icon 4"> No Consumables</li>
+                    <li><img src="path/to/icon5.svg" alt="Icon 5"> Exceptionally Large Spot size 13.5*38.5mm</li>
+                </ul>
+            </div>
+            <div class="center-image">
+                <img src="path/to/center-image.png" alt="Technology Image">
+            </div>
+            <div class="right-content">
+                <ul>
+                    <li><img src="path/to/icon6.svg" alt="Icon 6"> Multi-Changeable Magnetic Heads</li>
+                    <li><img src="path/to/icon7.svg" alt="Icon 7"> Low Noise</li>
+                    <li><img src="path/to/icon8.svg" alt="Icon 8"> 5-Stage 360° Compact Cooling Technology</li>
+                    <li><img src="path/to/icon9.svg" alt="Icon 9"> OLED Display</li>
+                    <li><img src="path/to/icon10.svg" alt="Icon 10"> Treat All Hair Spot & Hair</li>
+                    <li><img src="path/to/icon11.svg" alt="Icon 11"> Unlimited Flash Shots</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Trial Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            width: 800px;
+            background: #FBE4D9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 13px 0px;
+            border: 1px solid #ccc;
+            border-radius: 13px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group input[type="radio"] {
+            width: auto;
+        }
+
+        .body-zone {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .body-zone-item {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            flex: 1;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .body-zone-item.active {
+            border-color: #dfb6b3;
+            transform: scale(1.05);
+        }
+
+        .body-zone-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.gender .options,
+        .form-group.phone-mobile .options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-group.gender .options label,
+        .form-group.phone-mobile .options label {
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .submit-btn {
+            background:#8D7AB6;
+            color: #000000;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-group body-zone">
+            <div class="body-zone-item" data-value="underarms">
+                <img src="images/Underarms.png" alt="Underarms">
+                <p>Underarms</p>
+            </div>
+            <div class="body-zone-item" data-value="chin">
+                <img src="images/chin.png" alt="Chin">
+                <p>Chin</p>
+            </div>
+            <div class="body-zone-item" data-value="forearm">
+                <img src="images/Forearm.png" alt="Forearm">
+                <p>Forearm</p>
+            </div>
+            <div class="body-zone-item" data-value="lower_legs">
+                <img src="images/lower-legs.png" alt="Lower Legs">
+                <p>Lower Legs</p>
+            </div>
+            <div class="body-zone-item" data-value="upper_lip">
+                <img src="images/Upper-Lips.png" alt="Upper Lip">
+                <p>Upper Lip</p>
+            </div>
+        </div>
+
+        <div class="form-group grid-container">
+            <div class="form-group field">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" placeholder="Full Name">
+            </div>
+
+            <div class="form-group field gender">
+                <label>Gender</label>
+                <div class="options">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="others"> Others</label>
+                </div>
+            </div>
+
+            <div class="form-group field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email Address">
+            </div>
+
+            <div class="form-group field phone-mobile">
+                <label for="phone">Phone/Mobile</label>
+                <input type="tel" id="phone" placeholder="Mobile Number">
+            </div>
+
+            <div class="form-group field">
+                <label for="location">Primary Location</label>
+                <select id="location">
+                    <option value="" selected>- Select -</option>
+                    <option value="location1">Location 1</option>
+                    <option value="location2">Location 2</option>
+                    <option value="location3">Location 3</option>
+                </select>
+            </div>
+
+            <div class="form-group field">
+                <label for="locality">Locality</label>
+                <input type="text" id="locality" placeholder="Area or Locality">
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Book Trial Session</button>
+    </form>
+
+    <script>
+        document.querySelectorAll('.body-zone-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                document.querySelectorAll('.body-zone-item').forEach(el => el.classList.remove('active'));
+                // Add active class to the clicked item
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
